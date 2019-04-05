@@ -3,38 +3,74 @@ import "./styles.scss";
 import { MenuItem } from "./MenuItem";
 import logo from "../../utils/images/logo.png";
 import	{ Col } from "reactstrap";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
-var links = [
-	"Main",
-	"About",
-	"Contacts"
-]
- 
-export class Header extends React.Component {
-	render() {
-		return <header className = "header">
-				<div className = "container">
-				<div className = "header-wrap">
-					<Col className = "logo" xs = "3">
-					<img className = "logo-img" src = {logo} alt=""></img>
-					</Col>
-					<div className = "navigation">
-						<ul>
-							{links.map(
-								function(item, id){
-									return <MenuItem name = {item} key = {item}/>
-								}
-							)}
-						</ul>
-						{/* <ul className = "navbar">
-							<li><a href = "#">Home</a></li>
-							<li><a href = "#">About Us</a></li>
-							<li><a href = "#">Contacts</a></li>
-							<li><a href = "#">Our Blogs</a></li>
-						</ul> */}
-					</div>
-				</div>
-				</div>
-			</header>
+  export  class Header extends React.Component {
+	constructor(props) {
+	  super(props);
+  
+	  this.toggle = this.toggle.bind(this);
+	  this.state = {
+		isOpen: false
+	  };
 	}
-}
+	toggle() {
+	  this.setState({
+		isOpen: !this.state.isOpen
+	  });
+	}
+	render() {
+	  return (
+		  <Navbar color="light" light expand="md">
+			<div className = 'logo'><a href ="#"><img src = {logo} height = "35px"/></a></div>
+			<NavbarToggler onClick={this.toggle} />
+			<Collapse isOpen={this.state.isOpen} navbar>
+			  <Nav className="ml-auto" navbar>
+				<NavItem>
+				  <NavLink href="#">Home</NavLink>
+				</NavItem>
+				<NavItem>
+				  <NavLink href="#">About Us</NavLink>
+				</NavItem>
+				<NavItem>
+				  <NavLink href="#">Our contacts</NavLink>
+				</NavItem>
+				<UncontrolledDropdown nav inNavbar>
+				  <DropdownToggle nav caret>
+					Our Portfolio
+				  </DropdownToggle>
+				  <DropdownMenu right>
+					<DropdownItem>
+					  Portfolio 1
+					</DropdownItem>
+					<DropdownItem>
+					Portfolio 2
+					</DropdownItem>
+					<DropdownItem>
+					Portfolio 3
+					</DropdownItem>
+					<DropdownItem>
+					Portfolio 4
+					</DropdownItem>
+				  </DropdownMenu>
+				</UncontrolledDropdown>
+				<Col md="3">
+					<input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+				</Col>
+			  </Nav>
+			</Collapse>
+		  </Navbar>
+	  );
+	}
+  }
