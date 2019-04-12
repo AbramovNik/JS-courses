@@ -1,13 +1,11 @@
 import React from "react";
 import "./styles.scss";
-import { MenuItem } from "./MenuItem";
-import logo from "../../utils/images/logo.png";
+import logo from "../../../utils/images/logo.png";
 import	{ Col } from "reactstrap";
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -32,7 +30,9 @@ import {
 	}
 	render() {
 	  return (
-		  <Navbar color="light" light expand="md">
+			<header className = "header">
+				<div className = "container">
+		  <Navbar  light expand="md">
 			<div className = 'logo'><a href ="#"><img src = {logo} height = "35px"/></a></div>
 			<NavbarToggler onClick={this.toggle} />
 			<Collapse isOpen={this.state.isOpen} navbar>
@@ -55,13 +55,13 @@ import {
 					  Portfolio 1
 					</DropdownItem>
 					<DropdownItem>
-					Portfolio 2
+						Portfolio 2
 					</DropdownItem>
 					<DropdownItem>
-					Portfolio 3
+						Portfolio 3
 					</DropdownItem>
 					<DropdownItem>
-					Portfolio 4
+						Portfolio 4
 					</DropdownItem>
 				  </DropdownMenu>
 				</UncontrolledDropdown>
@@ -71,6 +71,8 @@ import {
 			  </Nav>
 			</Collapse>
 		  </Navbar>
+			</div>
+			</header>
 	  );
 	}
   }
