@@ -1,31 +1,34 @@
 import React from "react";
 // import PropTypes from "prop-types";
 import "./styles.scss";
-import "../../../../utils/images/icomoon/fonts/icomoon.svg"
-import {Col} from "reactstrap"
-const users = [];
+import "../../../../utils/images/icomoon/icons.css";
+import {Col} from "reactstrap";
+import {Link} from "react-router-dom";
+
 
 export class UserItem extends React.Component {
 render(){
     const {user} = this.props;
     return (
-        <Col  xs = "12" sm = "6" md = "4" lg = "3">
+        <Col>
             <div className = "user-hold">
                 <div className = "image-hold">
-                    <img src = {user.avatar_url}/>
+                    <img src = {user.avatar_url} alt = "" className = "user-avatar" />
                 </div>
                 <div className = "user-info">
-                    <strong className = "user-name">{`User login - ${user.login}`}</strong>
+                    <Link to = {`user/${user.login}`}>
+                        <strong className = "user-name">{`User login - ${user.login}`}</strong>
+                    </Link>
                 </div>
                 <div className = "hover-info">
-                        <ul className = "social-media">
-                            <li><a href="#"><span className="icon-facebook"></span></a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">LinkedIn</a></li>
-                        </ul>
-                    </div>
+                    <ul className = "social-media">
+                        <li><a href=".#"><i className = "icon-facebook" /></a></li>
+                        <li><a href=".#"><i className = "icon-twitter" /></a></li>
+                        <li><a href=".#"><i className = "icon-linkedin" /></a></li>
+                    </ul>
+                </div>
             </div>
-         </Col>
+        </Col>
     )
 }
 

@@ -1,17 +1,23 @@
+
 .user-hold {
     position: relative;
-    background: #baec45;
+    background: #eaec57;
     padding: 10px;  
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+    
 
     &:hover {
         cursor: pointer;
         
-        img{
+        img {
         transform: rotateY(360deg) scale(1.1,1.1);
         }
-        .hover-info{
-            height: 50px;
+        .hover-info {
+            height: 20px;
             opacity: 1;
         }
     } 
@@ -19,7 +25,7 @@
     .image-hold {
         padding: 10px;
 
-        img{
+        .user-avatar {
             width: 150px;
             height: 150px;
             border-radius: 50%;
@@ -32,37 +38,57 @@
         font-size: 25px; 
         cursor: pointer; 
         margin-bottom: 30px;
+
+        a {
+            text-decoration: none;
+        }
+
+        .user-name {
+            color: #33cdd8;
+            transition: all .5s ease;
+
+            &:hover {
+                color: #1043eb;   
+            }
+        }
     }
 }
 
-.hover-info{
+.hover-info {
     position: absolute;
-    top: 100%;
+    bottom: 0;
     left: 0;
     width: 100%;
-    transform: translateY(-50%);
     text-align: center;
-    background: #9c3cf7;
+    background: #f03a3a;
     height: 0;
     opacity: 0;
     transition: all .6s ease-in-out; 
 
-    .social-media{
+    .social-media {
         font-size: 0;
         line-height: 0;
         list-style: none;
         margin: 0;
         padding: 0;
+        height: 100%;
         
-        li{
+        li {
             display: inline-block;
             vertical-align: middle;
-            padding: 0 10px;
-            font-size: 13px;
-            line-height: 1.2;
-   
+            font-size: 20px;
+            padding:  0 15px;
+            
+            a {
+                text-decoration: none;
+                color: #1127eb;
+                transition: all .5s ease;
+
+                &:hover{
+                    color: #11eb65ee;
+                }
+            }
         }
 
     }
 }
-

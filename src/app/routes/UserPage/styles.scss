@@ -1,0 +1,23 @@
+.user-avatar {
+    width: 350px;
+    height: 350px;
+    margin-bottom: 20px;
+}
+
+.userInfo {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+
+
+    li {
+        font-size: 25px;
+        padding: 10px 0;
+
+        i {
+           padding-right: 10px;
+        }
+
+    }
+}

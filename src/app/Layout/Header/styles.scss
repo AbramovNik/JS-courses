@@ -4,8 +4,51 @@ body {
 }
 
 .header {
-    background:#20c997;
+    background:#12345e;
     margin-bottom: 40px;
+
+    .logo {
+        height: 50px;
+
+    }
+    
+    .nav-item {
+
+        .nav-link {
+            color: #acb934;
+            font-size: 20px;
+            padding: 0 15px;
+            position: relative;
+            transition: all .7s ease;
+
+            &:hover {
+                &:before,&:after {
+                    width: 100%;
+                    transition: all .7s ease;
+                }
+            }
+
+            &:before{
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 0;
+                height: 2px;
+                background: #7c0000;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background: #7c0000;
+            }
+
+        }
+    }
     
 }
 

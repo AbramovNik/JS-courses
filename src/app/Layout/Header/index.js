@@ -1,20 +1,25 @@
 import React from "react";
 import "./styles.scss";
 import logo from "../../../utils/images/logo.png";
-import	{ Col } from "reactstrap";
+
 import {
-  Collapse,
+	Collapse,
+	Container,
   Navbar,
   NavbarToggler,
   Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  NavItem } from 'reactstrap';
+	import  {Link} from "react-router-dom";
+
+	const links = [
+		{title:"Home", url:"/"},
+		{title:"About", url:"/about"},
+		{title:"Contacts", url:"/contacts"}
+	];
 
   export  class Header extends React.Component {
+
+
 	constructor(props) {
 	  super(props);
   
@@ -29,49 +34,26 @@ import {
 	  });
 	}
 	render() {
+	
 	  return (
 			<header className = "header">
 				<div className = "container">
-		  <Navbar  light expand="md">
-			<div className = 'logo'><a href ="#"><img src = {logo} height = "35px"/></a></div>
-			<NavbarToggler onClick={this.toggle} />
-			<Collapse isOpen={this.state.isOpen} navbar>
-			  <Nav className="ml-auto" navbar>
-				<NavItem>
-				  <NavLink href="#">Home</NavLink>
-				</NavItem>
-				<NavItem>
-				  <NavLink href="#">About Us</NavLink>
-				</NavItem>
-				<NavItem>
-				  <NavLink href="#">Our contacts</NavLink>
-				</NavItem>
-				<UncontrolledDropdown nav inNavbar>
-				  <DropdownToggle nav caret>
-					Our Portfolio
-				  </DropdownToggle>
-				  <DropdownMenu right>
-					<DropdownItem>
-					  Portfolio 1
-					</DropdownItem>
-					<DropdownItem>
-						Portfolio 2
-					</DropdownItem>
-					<DropdownItem>
-						Portfolio 3
-					</DropdownItem>
-					<DropdownItem>
-						Portfolio 4
-					</DropdownItem>
-				  </DropdownMenu>
-				</UncontrolledDropdown>
-				<Col md="3">
-					<input className="form-control" type="text" placeholder="Search" aria-label="Search" />
-				</Col>
-			  </Nav>
-			</Collapse>
-		  </Navbar>
-			</div>
+					<Navbar light expand = "md">
+							<Link to = "/">
+							<img src = {logo} alt = "" className = "logo"  />
+							</Link>
+							<NavbarToggler onClick = {this.toggle} />
+							<Collapse isOpen = {this.state.isOpen} navbar>
+							<Nav className = "ml-auto" navbar>
+								{links.map(item => (
+									<NavItem key = {item.url}>
+										<Link to = {item.url} className = "nav-link">{item.title}</Link>
+									</NavItem>
+								))}
+							</Nav>
+							</Collapse>
+					</Navbar>
+				</div>
 			</header>
 	  );
 	}

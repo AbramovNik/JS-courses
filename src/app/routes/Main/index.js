@@ -1,13 +1,7 @@
 import React from "react";
-import {Col, Row, Container} from "reactstrap";
+import { Row, Container} from "reactstrap";
 import {UserItem} from './usersComponents'
 import  axios from "axios";
-const users = [{
-    login : "defunkt",
-    avatar_url : "https://avatars0.githubusercontent.com/u/2?v=4"
-
-}];
-
 
 
 
@@ -28,13 +22,12 @@ state = {
     render(){
         const{ users } = this.state;
         return <main className = "main">
-        <Container>
+            <Container>
             <Row>
                 {users.map((user, id) => (
                     <UserItem user = {user} key = {id}/>))}
             </Row>
-        </Container>
-        
+            </Container>
         </main>
     }
 
