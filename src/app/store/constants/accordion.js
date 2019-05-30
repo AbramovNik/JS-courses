@@ -1,0 +1,1 @@
+export const OPEN_ACCORDION = "OPEN_ACCORDION";

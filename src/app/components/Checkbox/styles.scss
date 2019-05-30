@@ -1,0 +1,48 @@
+.fake-checkbox {
+  width: 20px;
+  height: 20px;
+  background: rgb(94, 92, 92);
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin-left: 10px;
+
+  &:hover {
+    background: rgb(82, 75, 75);
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 5px;
+    width: 7px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.realCheck {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-hold {
+  display: block;
+  font-size: 20px;
+}
+
+.checkbox-hold input:checked ~ .fake-checkbox {
+  background: rgb(31, 137, 236);
+}
+
+.checkbox-hold input:checked ~ .fake-checkbox:after {
+  display: block;
+}
