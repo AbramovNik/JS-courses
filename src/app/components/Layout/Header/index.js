@@ -14,8 +14,6 @@ import {
 	const links = [
 		{title:"Home", url:"/"},
 		{title:"About", url:"/about"},
-		{title:"Contacts", url:"/contacts"},
-		{title:"SearchUsers", url:"/searchUsers"}
 	];
 
   export  class Header extends React.Component {

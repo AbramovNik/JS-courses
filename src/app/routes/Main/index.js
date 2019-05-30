@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Col, Container, Button } from "reactstrap";
-import { UserComponents, UserComponent } from './usersComponents';
-import { Accordion, Checkbox } from "../../components"
+import {  UserComponent } from './usersComponents';
 import axios from "axios";
 import { connect } from "react-redux";
 import { getUsersSucessAction, getUsersErrorAction } from '../../store/actions/users';
@@ -66,12 +65,8 @@ class MainComponent extends React.Component {
         const { usersData, error, history } = this.props;
         return <main className="main">
             <Container>
-                <Checkbox />
                 <Col className="sort-control">
                     <Button color="primary" onClick={this.sortItems}>Sort</Button>
-                    <input type="text" ref={this.myRef} onClick={this.click} />
-                    <Accordion title="section 1" content="Some text of section 1" />
-                    <Accordion title="section 2" content="Some text of section 2" />
                 </Col>
                 <Row>
                     {usersData.map((user, id) => (
